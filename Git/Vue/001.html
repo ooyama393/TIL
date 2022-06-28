@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <h1>Vue</h1>
+
+    <div id="app">
+      <p>{{message}}</p>
+      <div>
+        <input type="checkbox" id="category-1" v-model="todoCategories" value="category-1" />
+        <label for="category-1">カテゴリ1</label>
+      </div>
+      <div>
+        <input type="checkbox" id="category-2" v-model="todoCategories" value="category-2" />
+        <label for="category-2">カテゴリ2</label>
+      </div>
+      <p>{{categoryText}}</p>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -7,6 +7,7 @@ Vue.createApp({
       imgSize: 0.8,
       imgStyle: '',
       isActive: 0,
+      isShow: 10,
     };
   },
   methods: {

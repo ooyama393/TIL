@@ -26,6 +26,10 @@
         <button v-on:click="changeClass">クラス切り替え</button>
         <div v-bind:class="className">クラス</div>
       </div>
+
+      <div v-if="isShow > 5">v-if 5</div>
+      <div v-else-if="isShow > 0">v-if true</div>
+      <div v-else>v-if 0</div>
     </div>
 
     <script src="app.js"></script>

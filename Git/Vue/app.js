@@ -8,6 +8,11 @@ Vue.createApp({
       imgStyle: '',
       isActive: 0,
       isShow: 10,
+      items: ['item01', 'item02', 'item03'],
+      values: {
+        カテゴリ1: '駅',
+        カテゴリ2: '道',
+      },
     };
   },
   methods: {

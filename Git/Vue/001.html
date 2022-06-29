@@ -30,6 +30,13 @@
       <div v-if="isShow > 5">v-if 5</div>
       <div v-else-if="isShow > 0">v-if true</div>
       <div v-else>v-if 0</div>
+
+      <div class="vue_for_area">
+        <div v-for="(value,key) in values">
+          <p>{{key}}</p>
+          <p>{{value}}</p>
+        </div>
+      </div>
     </div>
 
     <script src="app.js"></script>

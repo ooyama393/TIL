@@ -1,30 +1,33 @@
 Vue.createApp({
   data: function () {
     return {
-      todoCategories: [],
-      message: 'aaaa',
-      count: 0,
-      todoTitle: '',
+      message: 'bindbind',
+      imgSrc: 'mainbnr.jpg',
+      isDisabled: 0,
+      imgSize: 0.8,
+      imgStyle: '',
+      isActive: 0,
     };
   },
-  watch: {
-    todoTitle: function (next, prev) {
-      console.log('nexttt' + next);
-      console.log('prevvv' + prev);
+  methods: {
+    changeImg: function (event) {
+      this.imgSrc = 'medal_ribbon_icon.png';
+      this.imgSize = 0.9;
+    },
+    changeClass: function () {
+      if (this.isActive == true) {
+        this.isActive = false;
+      } else {
+        this.isActive = true;
+      }
     },
   },
   computed: {
-    joinedToDoCategories: function () {
-      return this.todoCategories.join(' / ');
+    changeImgStyle: function () {
+      return (this.imgStyle = 'transform:scale(' + this.imgSize + ')');
     },
-    categoryText: function () {
-      return 'ggg' + this.joinedToDoCategories;
-    },
-  },
-  methods: {
-    onClickCountUp: function (event) {
-      console.log(this.categoryText);
-      return this.count++;
+    className: function () {
+      return { 'is-active': this.isActive, 'is-inactive': !this.isActive };
     },
   },
 }).mount('#app');

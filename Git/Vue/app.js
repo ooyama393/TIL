@@ -1,3 +1,20 @@
+// components
+
+const myTitle = {
+  props: {
+    name: {
+      type: String,
+      default: '',
+      validator: function (value) {
+        return value.length > 0;
+      },
+      require: true,
+    },
+  },
+  template: '#title-template',
+};
+// components ここまで
+
 Vue.createApp({
   data: function () {
     return {
@@ -35,5 +52,8 @@ Vue.createApp({
     className: function () {
       return { 'is-active': this.isActive, 'is-inactive': !this.isActive };
     },
+  },
+  components: {
+    'my-title': myTitle,
   },
 }).mount('#app');

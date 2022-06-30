@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>商品検索、絞り込み</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css" />
+  </head>
+  <body>
+    <!-- START: 商品一覧を表示するテンプレート -->
+
+    <div id="app" class="container">
+      <div class="column is-mobile is-centered">
+        <div class="column is-half">
+          <h1 class="title is-1">DEMO</h1>
+
+          <div class="tabs is-centered">
+            <ul>
+              <li :class="{'is-active': activeWordsTab}">
+                <a @click="changeTab(1)">タイトルで絞り込み</a>
+              </li>
+              <li :class="{'is-active': activePriceTab}">
+                <a @click="changeTab(2)">価格で絞り込む</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="field">
+            <label for="words" class="label">検索</label>
+            <input id="words" class="input" type="text" name="words" placeholder="入力してください" v-model.trim.lazy="filterText" />
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-mobile is-centered">
+        <div class="column is-half">
+          <table class="table is-striped is-fullwidth">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>タイトル</th>
+                <th class="has-text-right">数値</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in filteredItems" :key="item.id">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td class="has-text-right">{{item.price}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <p v-if="filteredItems.length == 0" class="has-text-centered">対象の商品は見当たりませんでした</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.0.0/dist/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
